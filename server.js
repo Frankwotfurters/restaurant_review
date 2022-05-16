@@ -7,12 +7,15 @@ const routeReviews = require("./routes/routeReviews");
 const routeTags = require("./routes/routeTags");
 const routeTagLists = require("./routes/routeTagLists");
 const routeBookmarks = require("./routes/routeBookmarks");
-const routeReviewImages = require("./routes/routeReviewImages");
 
 const express = require("express");
-const routeMovies= require("./routes/routeMovies")
-const routeComments = require("./routes/routeComments");
 const bodyParser = require("body-parser");
+const routeImages= require("./routes/routeImages");
+
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
+
 var app = express();
 var host = "127.0.0.1";
 var port = 8080;
@@ -29,10 +32,7 @@ routeReviews.routeReviews(app);
 routeTags.routeTags(app);
 routeTagLists.routeTagLists(app);
 routeBookmarks.routeBookmarks(app);
-routeReviewImages.routeReviewImages(app);
-
-routeMovies.routeMovies(app);
-routeComments.routeComments(app);
+routeImages.routeImages(app, path, fs);
 
 function gotoIndex(req, res) {
     console.log(req.params);
@@ -49,3 +49,5 @@ var server = app.listen(port, host, function() {
 
     console.log("Example app listening at http://%s:%s", host, port);
 });
+// put the HTML file containing your form in a directory named "public" (relative to where this script is located)
+app.get("/", express.static(path.join(__dirname, "./public")));

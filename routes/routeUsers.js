@@ -14,13 +14,17 @@ function routeUsers(app){
         .put(userDBObject.changePassword);
     app.route("/user/activate")
         .put(userDBObject.setActivate);
+    app.route("/email/:email")
+        .get(userDBObject.checkEmail);
+    app.route("/email/activate")
+        .put(userDBObject.activateEmail);
     app.route("/user/update/:username")
         .put(userDBObject.updateInfo);
     app.route("/user/:username/picture")
         .put(userDBObject.updatePicture);
     app.route("/login")
         .post(userDBObject.getLoginCredentials);
-    app.route("/recovery/:username")
+    app.route("/recovery")
         .put(userDBObject.addRecoveryCode);
 }
 
