@@ -1,0 +1,203 @@
+body {
+    cursor: url("../images/smalllogo.png"), auto;
+}
+.input {
+    padding: 0 0 0.3rem 0.5rem;
+    display: block;
+    border: 1px solid #ccc;
+    width: 50%;
+    font-size: 20px;
+}
+.input.input2 {
+    width: 100%;
+}
+.label {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.profile {
+    text-align: center;
+    display: inline-block;
+}
+.profile-picture {
+    margin: 5rem 0 1rem 0;
+    width: 180px;
+    height: 180px;
+}
+.info {
+    margin: 2rem 0;
+}
+.center {
+    text-align: center;
+}
+div {
+    /* border: 1px solid red; */
+}
+.button-div {
+    margin: 3rem 0 0 0;
+    width: fit-content;
+    display: inline-block;
+}
+.button-div a:hover {
+    text-decoration: none;
+}
+.red-button {
+    color: red;
+    margin: 1rem 0;
+    display: block;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    width: 100%;
+}
+.header {
+    display: block;
+}
+.review-border {
+    border-top: 2px solid #ccc;
+}
+.thumbnail {
+    height: 200px;
+    width: 200px;
+    margin: 2rem 2rem 0.75rem 2rem;
+}
+div.review-text {
+    padding: 2rem;
+    text-align: justify;
+}
+p.review-text {
+    padding: 1rem 0 0 0;
+}
+.review-image {
+    height: 200px;
+    width: 200px;
+    margin: 2rem;
+}
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+  
+.container-login {
+    width: 100%;  
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #f2f2f2;
+}
+.wrap-login {
+    width: 1170px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+label {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.aqua {
+    background-color: aqua;
+}
+.blue {
+    background-color: blue;
+}
+.rating {
+    height: 30px;
+    width: auto;
+}
+.timestamp {
+    float: right;
+    color: #a9a9a9;
+}
+.action {
+    height: auto;
+    width: 30px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+.delete {
+    height: 30px;
+    width: 30px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    background-image: url("../images/delete.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.edit {
+    height: 30px;
+    width: 30px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    background-image: url("../images/edit.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+button.post {
+    float: right;
+    text-align: center;
+}
+.user-rating {
+    text-align: right;
+}
+.user-rating img {
+    height: 35px;
+    width: auto;
+}
+div.modal-footer {
+    width: 100%;
+}
+.close {
+    cursor: pointer;
+}
+p#edit-button {
+    color: blue;
+    text-decoration: underline;
+}
+p#edit-button-red {
+    color: red;
+    text-decoration: underline;
+}
+p#edit-button:hover {
+    color: purple;
+    text-decoration: underline;
+}
+.bookmark-rating img {
+    width: 10%;
+    height: auto;
+}
+div.restaurant-block img.thumbnail{
+    margin: 1rem;
+    height: 135px;
+    width: 135px;
+    border-radius: 15px;
+}
+div.restaurant-info-block {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #90A8C3;
+}
+div.restaurant-info-block p{
+    font-size: 20px;
+}
+div.restaurant-info-block p.tags{
+    font-size: 16px;
+}
+.empty {
+    font-size: 30px;
+    margin: 3rem;
+}
+.empty.book {
+    width: 100%;
+}
+.uploadForm {
+    margin: 0.5rem 0 1rem 0;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>nastynaenae</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="./images/naenae.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+    <script type="text/javascript" src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/googletranslate.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="js/w3.js"></script>
+    <script src="js/restaurant.js"></script>
+    <script type="text/javascript" src="./js/session.js"></script>
+</head>
+
+<body onload="getRestaurant(), getReviews(), getRestaurantTags(), checkBookmarked(), checkSession(), checkRestaurantSession()">
+    <!--This is where the top navigation HTML codes will be loaded -->
+    <div w3-include-html="navbar.html"></div>
+
+    <!--This is where the delete account modal codes will be loaded -->
+    <div w3-include-html="deletereview-modal.html"></div>
+
+    <!--This is where the delete account modal codes will be loaded -->
+    <div w3-include-html="editreview-modal.html"></div>
+
+    <section class="carousel-block">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators" id="carouselDotTable">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner" id="carouselTable">
+                <div class="carousel-item active">
+                    <img src="./images/restaurant/sub2.jpg" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/restaurant/sub3.jpg" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/restaurant/sub4.jpg" alt="image">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+    </section>
+
+    <script src="js/restaurant.js"></script>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="restaurant-name" id="restaurant-name">Subway (TP)</h1>
+                    <img class="print" id="print" data-toggle="tooltip" data-placement="top" title="Print information"
+                        onclick="Print()" src="images/print.png">
+                    <img class="print" id="bookmark" title="Bookmark restaurant" onclick="bookmark()" src="images/assets/bookmark.png">
+                </div>
+            </div>
+            <div class="row" id="restaurantTable">
+                <div class="col-md-12">
+                    <div class="rating" id="ratingTable">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                    </div>
+                    <div class="col-md-12 restaurant-info">
+                        <p id="reviewNo">Number of reviews</p>
+                        <p class="tags" id="tags">Tags</p>
+                        <p id="address">Address</p>
+                        <p id="contact_number">Contact number</p>
+                    </div>
+                </div>
+                <div class="col-md-6" id="postReview1">
+                    <h2><b>Write a review</b></h2>
+                </div>
+                <div class="col-md-6" id="postReview2">
+                    <div class="user-rating">
+                        <img class="rating" id="5" onclick="reviewRate(this.id-5)" src="images/blank.png">
+                        <img class="rating" id="6" onclick="reviewRate(this.id-5)" src="images/blank.png">
+                        <img class="rating" id="7" onclick="reviewRate(this.id-5)" src="images/blank.png">
+                        <img class="rating" id="8" onclick="reviewRate(this.id-5)" src="images/blank.png">
+                        <img class="rating" id="9" onclick="reviewRate(this.id-5)" src="images/blank.png">
+                    </div>
+                </div>
+                <div class="col-md-12" id="postReview3">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="comment" rows="5" placeholder="Write some text" required></textarea>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6" id="postReview4">
+                    <button class="btn btn-purple postReview" type="button" onclick="addReview()">Post!</button>
+                    </form>
+                </div>
+                <div class="col-md-12" id="postReview5">
+                    <form id="imgUpload" method="post" enctype="multipart/form-data" action="/review/upload" target="_blank">
+                        <label for="file">Upload image (Only .png files accepted)</label>
+                        <input type="file" name="file" id="selectFile" name="file" accept=".png" onchange="getReviewThumbName(), this.form.submit(), getReviewUploaded()">
+                        <p id="uploaded"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="container" id="reviewTable">
+            <!-- <div class="row review-border">
+                <div class="col-md-3 center">
+                    <a href="profile.html"><img class="dp" src="./images/profile.jpg"></a>
+                    <p>User 1</p>
+                </div>
+                <div class="col-md-6 review-text">
+                    <div class="rating">
+                       <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <img class="rating" src="images/rating.png">
+                        <p class="timestamp">17 Dec 2019</p>
+                    </div>
+                    <p class="review-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit, quam ut malesuada
+                        blandit,
+                        orci leo maximus nibh, sit amet posuere sapien diam blandit risus. Nunc pulvinar volutpat
+                        purus,
+                        pellentesque eleifend tellus. Vestibulum enim sem, blandit non porta vel.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <img class="review-image" src="images/restaurant/sub1.jpg">
+                </div>
+            </div>  -->
+        </div>
+    </section>
+</body>
+<script>
+    //to bring in other HTML on the fly into this page
+    w3.includeHTML();
+</script>
+
+</html>

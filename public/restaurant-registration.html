@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>nastynaenae</title>
+    <link rel="icon" href="./images/naenae.png">
+    <script src="js/w3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/activate.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/googletranslate.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="./js/session.js"></script>
+    <script type="text/javascript" src="./js/restaurant.js"></script>
+    <script type="text/javascript" src="./js/check.js"></script>
+    <script type="text/javascript" src="./js/restaurant-registration.js"></script>
+</head>
+
+<body onload="checkSession()">
+    <!--This is where the top navigation HTML codes will be loaded -->
+    <div w3-include-html="navbar.html"></div>
+    <script>
+        //to bring in other HTML on the fly into this page
+        w3.includeHTML();
+    </script>
+
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-12 clearfix">
+                <h3 class="center title">Register your restaurant!</h3>
+                <form onsubmit="addRestaurant(); return false">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="restaurant" placeholder="Restaurant Name" maxlength="22" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="address" placeholder="Restaurant Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="website" placeholder="Restaurant Website">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="contact_number" placeholder="Restaurant Contact Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="halal" class="tags" required>
+                        <label for="halal">Halal</label> <br>
+                        <input type="checkbox" name="Western" class="tags" required>
+                        <label for="Western">Western</label> <br>
+                        <input type="checkbox" name="Chinese" class="tags" required>
+                        <label for="Chinese">Chinese</label> <br>
+                        <input type="checkbox" name="Fried" class="tags" required>
+                        <label for="Fried">Fried</label> <br>
+                        <input type="checkbox" name="Hot Pot" class="tags" required>
+                        <label for="Hot Pot">Hot Pot</label> <br>
+                        <input type="checkbox" name="Fast food" class="tags" required>
+                        <label for="Fast food">Fast food</label> <br>
+                        <input type="checkbox" name="Korean" class="tags" required>
+                        <label for="Korean">Korean</label> <br>
+                        <input type="checkbox" name="Indian" class="tags" required>
+                        <label for="Indian">Indian</label> <br>
+                        <input type="checkbox" name="Thai" class="tags" required>
+                        <label for="Thai">Thai</label> <br>
+                        <input type="checkbox" name="Italian" class="tags" required>
+                        <label for="Italian">Italian</label> <br>
+                        <input type="checkbox" name="Japanese" class="tags" required>
+                        <label for="Japanese">Japanese</label> <br>
+                        <input type="checkbox" name="Vietnamese" class="tags" required>
+                        <label for="Vietnamese">Vietnamese</label> <br>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" onclick="formValidation()" class="btn btn-purple btn-lg btn-block">Register
+                            Restaurant</button>
+                    </div>
+                </form>
+                <form id="imgUpload" method="post" enctype="multipart/form-data" action="/upload" target="_blank">
+                    <label for="file">Upload a restaurant thumbnail (Only .png files are accepted)</label>
+                    <input type="file" name="file" id="selectFile" name="file" accept=".png" onchange="getThumbName(), this.form.submit(), getUploaded()">
+                    <p id="uploaded"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

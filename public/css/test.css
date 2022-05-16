@@ -1,0 +1,16 @@
+div {
+    border: 5px solid red;
+    background-color: aqua;
+}
+.big {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+.small {
+    width: 200px;
+    height: 400px;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>nastynaenae</title>
+    <link rel="icon" href="./images/naenae.png">
+    <script src="js/w3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/forgetpassword.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/googletranslate.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
+    <script type="text/javascript" src="./js/strength.js"></script>
+    <script type="text/javascript" src="./js/session.js"></script>
+</head>
+
+<body onload="checkSession()">
+    <!--This is where the top navigation HTML codes will be loaded -->
+    <div w3-include-html="navbar.html"></div>
+    <script>
+        //to bring in other HTML on the fly into this page
+        w3.includeHTML();
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 reset">
+                <form onsubmit="activateAccount(); return false">
+                    <div class="form-group">
+                        <h1>Account Activation</h1>
+                        <p class="reset">please enter the recovery code sent to your email:</p>
+                    </div>
+                    <div class="input-group reset-password">
+                            <input type="number" id="recovery" class="form-control" name="recovery" placeholder="Recovery code">
+                        </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-purple">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

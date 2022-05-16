@@ -1,0 +1,46 @@
+<!-- this is a structure of Bootstrap Modal -->
+<div class="modal fade" id="editReviewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-center">
+                <h5 class="modal-title text-light" id="review">Review editor</h5>
+                <img src="./images/delete.png" data-dismiss="modal" class="close">
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Edit a review</b></h2>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="user-rating" id="editTable">
+                                <img class="rating" id="0" onclick="rate(this.id)" src="images/rating.png">
+                                <img class="rating" id="1" onclick="rate(this.id)" src="images/blank.png">
+                                <img class="rating" id="2" onclick="rate(this.id)" src="images/blank.png">
+                                <img class="rating" id="3" onclick="rate(this.id)" src="images/blank.png">
+                                <img class="rating" id="4" onclick="rate(this.id)" src="images/blank.png">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <form>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="editComment" rows="5" placeholder="Write some text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit, quam ut malesuada blandit, orci leo maximus nibh, sit amet posuere sapien diam blandit risus. Nunc pulvinar volutpat purus, pellentesque eleifend tellus. Vestibulum enim sem, blandit non porta vel.</textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12">
+                            <form id="editImgUpload" method="post" enctype="multipart/form-data" target="_blank">
+                                <label for="file">Upload image</label>
+                                <input type="file" name="file" id="selectFile" name="file" accept=".png" onchange="this.form.submit(), getEditUploaded()">
+                                <p id="editUploaded"></p>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-lg btn-purple post" onclick="editReview()" data-dismiss="modal">Update!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

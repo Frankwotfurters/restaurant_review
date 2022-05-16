@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>nastynaenae</title>
+    <link rel="icon" href="./images/naenae.png">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/profile.js"></script>
+    <script type="text/javascript" src="./js/session.js"></script>
+    <script src="js/w3.js"></script>
+
+    <script type="text/javascript" src="./js/googletranslate.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body onload="getUserInfo(), getReviews(), getBookmarks(), checkSession(), checkOwner()">
+    <!--This is where the top navigation HTML codes will be loaded -->
+    <div w3-include-html="navbar.html"></div>
+
+    <!--This is where the delete account modal codes will be loaded -->
+    <div w3-include-html="delete-modal.html"></div>
+
+    <!--This is where the delete account modal codes will be loaded -->
+    <div w3-include-html="deletereview-modal.html"></div>
+
+    <!--This is where the delete account modal codes will be loaded -->
+    <div w3-include-html="editreview-modal.html"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 profile">
+                <img class="profile-picture" id="profile-picture" src="./images/profile.jpg">
+                <b>
+                    <p class="username" id="username">Username</p>
+                </b>
+                <p id="edit-button" onclick="editInfo()">Edit profile</p>
+                <form class="uploadForm" id="imgUpload" method="post" enctype="multipart/form-data" action="/upload" target="_blank">
+                    <label for="file"><u>Change profile picture (Only .png files accepted)</u></label>
+                    <input type="file" name="file" id="selectFile" name="file" accept=".png" onchange="this.form.submit(), changeProfilePicture()">
+                </form>
+            </div>
+            <div class="col-md-6 info">
+                <form>
+                    <label class="label">Name:</label>
+                    <input type="text" id="name" value="Name" class="input" disabled> <br>
+
+                    <label class="label">Gender:</label>
+                    <select type="text" id="gender" value="Gender" class="input" disabled>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select><br>
+
+                    <label class="label">Mobile No.:</label>
+                    <input type="text" id="mobileNo" value="Mobile No." class="input" disabled> <br>
+
+                    <label class="label">Postal Code:</label>
+                    <input type="text" id="address" value="Postal Code" class="input input2" disabled> <br>
+
+                    <label class="label">Email:</label>
+                    <input type="text" id="email" value="Email" class="input input2" disabled> <br>
+                </form>
+            </div>
+            <div class="col-md-2 button-div">
+                <button class="red-button" id="logout" onclick="logOut()">Log out</button>
+                <button data-toggle="modal" id="deleteAccount" data-target="#deleteModal" class="red-button">Deactivate Account</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#my-reviews" role="tab" aria-controls="home"
+                    aria-selected="true">My Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#bookmarks" role="tab" aria-controls="profile"
+                    aria-selected="false">Bookmarks</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="my-reviews" role="tabpanel" aria-labelledby="home-tab">
+                <div class="container" id="reviewTable">
+                    <div class="row review-border">
+                        <div class="col-md-3 center">
+                            <a href="restaurant.html"><img class="thumbnail" src="./images/thumb.jpg"></a>
+                            <p>Subway (TP)</p>
+                        </div>
+                        <div class="col-md-6 review-text">
+                            <div class="rating">
+                                <img data-toggle="modal" data-target="#deleteReviewModal" class="action" src="images/delete.png">
+                                <img data-toggle="modal" data-target="#editReviewModal" class="action" src="images/edit.png">
+                                <img class="rating" src="images/rating.png">
+                                <img class="rating" src="images/rating.png">
+                                <img class="rating" src="images/rating.png">
+                                <img class="rating" src="images/rating.png">
+                                <img class="rating" src="images/rating.png">
+                                <p class="timestamp">17 Dec 2019</p>
+                            </div>
+                            <p class="review-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit, quam ut
+                                malesuada
+                                blandit,
+                                orci leo maximus nibh, sit amet posuere sapien diam blandit risus. Nunc pulvinar
+                                volutpat
+                                purus,
+                                pellentesque eleifend tellus. Vestibulum enim sem, blandit non porta vel.
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <img class="review-image" src="images/restaurant/sub1.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="container">
+                    <div class="row" id="bookmarkTable">
+                        <div class="col-md-4 restaurant-block center">
+                            <div class="restaurant-info-block">
+                                <a href="restaurant.html">
+                                    <img class="thumbnail" src="./images/thumb.jpg">
+                                </a>
+                                <p><u>Subway (TP)</u></p>
+                                <div class="bookmark-rating">
+                                    <img src="images/rating.png">
+                                    <img src="images/rating.png">
+                                    <img src="images/rating.png">
+                                    <img src="images/rating.png">
+                                    <img src="images/rating.png">
+                                </div>
+                                <p class="tags">Halal, Fast food</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //to bring in other HTML on the fly into this page
+        w3.includeHTML();
+    </script>
+</body>

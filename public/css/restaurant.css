@@ -1,0 +1,108 @@
+body {
+  cursor: url("../images/smalllogo.png"), auto;
+}
+.restaurant-name {
+  margin: 2rem 0 1rem 0;
+  display: inline-block;
+}
+.print {
+    float: right;
+    margin: 1rem;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.rating {
+    height: 30px;
+    width: auto;
+}
+.carousel {
+  height: 300px;
+}
+
+.carousel-item,
+.carousel-inner,
+.carousel-inner img {
+  height: 100%;
+}
+.carousel-item {
+  text-align: center;
+}
+.carousel-block {
+  background-color: #717171;
+}
+p.tags {
+  color: blue;
+}
+.user-rating {
+  text-align: right;
+}
+.user-rating img {
+  height: 50px;
+  width: auto;
+}
+input.comment {
+  height: 20rem;
+}
+button.postReview {
+  float: right;
+  text-align: center;
+  width: 30%;
+}
+button.post {
+  float: right;
+  text-align: center;
+}
+.review-border {
+  border-top: 1.5px solid #ccc;
+}
+.dp {
+  height: 180px;
+  width: 180px;
+  margin: 2rem 2rem 0.75rem 2rem;
+}
+div.review-text {
+  padding: 2rem;
+  text-align: justify;
+  word-wrap: break-word;
+}
+p.review-text {
+  padding: 1rem 0 0 0;
+}
+.review-image {
+  height: 200px;
+  width: 200px;
+  margin: 2rem auto;
+}
+.center {
+  text-align: center;
+}
+.restaurant-info{
+  margin: 0 0 5rem 0;
+}
+.timestamp {
+  color: #a9a9a9;
+  float: right;
+}
+section.reviews {
+  margin: 2rem 0 0 0;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.empty {
+  color: black;
+}
+.action {
+  height: auto;
+  width: 30px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+div.blank {
+  text-align: center;
+  font-size: 30px;
+  margin: 3rem 0 0 0;
+}

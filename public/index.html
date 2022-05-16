@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>nastynaenae</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="./images/naenae.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script src="js/w3.js"></script>
+
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/movies.js"></script>
+    <script type="text/javascript" src="./js/comments.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/session.js"></script>
+
+    <script type="text/javascript" src="./js/googletranslate.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+
+<body id="top" class="cursor" onload="listAllRestaurants(), checkSession()">
+    <section>
+        <!--This is where the top navigation HTML codes will be loaded -->
+        <div w3-include-html="navbar.html"></div>
+
+        <header>
+            <div class="parallax">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="header-content">
+                                <h1>Craving for some good food? <br>
+                                    Check out the top rated <br>
+                                    restaurants in your area!</h1>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="search" placeholder="Search for restaurants" />
+                                    <div class="input-group-btn">
+                                        <div class="btn-group" role="group">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-purple dropdown-toggle"
+                                                    data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                    <form class="form-horizontal" role="form">
+                                                        <div class="form-group">
+                                                            <label for="filter">Tags:</label>
+                                                            <select class="form-control" id="tag">
+                                                                <option value="0" selected>None</option>
+                                                                <option value="1">Halal</option>
+                                                                <option value="2">Western</option>
+                                                                <option value="3">Chinese</option>
+                                                                <option value="4">Fried</option>
+                                                                <option value="5">Hotpot</option>
+                                                                <option value="6">Fast food</option>
+                                                                <option value="7">Korean</option>
+                                                                <option value="8">Indian</option>
+                                                                <option value="9">Thai</option>
+                                                                <option value="10">Italian</option>
+                                                                <option value="11">Japanese</option>
+                                                                <option value="12">Vietnamese</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="filter">Order:</label>
+                                                            <select class="form-control" id="order">
+                                                                <option value="null" selected>Alphabetical</option>
+                                                                <option value="DESC">Descending rating</option>
+                                                                <option value="ASC">Ascending rating</option>
+                                                            </select>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" onclick="search()" class="cursor btn btn-primary search"></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <h1 id="explore"><u><b>Explore Restaurants</b></u></h1>
+    <div class="container">
+        <div class="row" id="restaurantTable">
+            <div class="col-md-4 restaurant-block center">
+                <div class="restaurant-info">
+                    <a href="restaurant.html">
+                        <img class="thumbnail" src="./images/thumb.jpg">
+                    </a>
+                    <p><u>Subway (TP)</u></p>
+                    <div class="rating">
+                        <img src="images/rating.png">
+                        <img src="images/rating.png">
+                        <img src="images/rating.png">
+                        <img src="images/rating.png">
+                        <img src="images/rating.png">
+                    </div>
+                    <p class="tags">Halal, Fast food</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-primary" id="toTop" href="#top">Back to top</a>
+</body>
+<script>
+    //to bring in other HTML on the fly into this page
+    w3.includeHTML();
+</script>
+<script>   
+    document.getElementById("search").onkeydown = function(e){
+        if(e.keyCode === 13){
+        search();
+        }
+    };
+</script>
+
+</html>
